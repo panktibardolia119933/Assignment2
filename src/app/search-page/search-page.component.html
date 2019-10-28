@@ -1,0 +1,22 @@
+<!-- SEARCH -->
+<form action="" (ngSubmit)="searchNow()">
+    <input type="text" name="searchValue" [(ngModel)]=searchValue>
+    <input type="submit" value="search">
+</form>
+
+<!-- CONTAINER -->
+<div class="container-fluid">
+    <div class="row">
+    <div class="card" style="width: 16rem;" *ngFor="let restaurant of data">
+        <img src="{{ restaurant.photos? photo(restaurant.photos[0].photo_reference) : 'assets/image/image.png'}}" class="card-img-top" style="max-height: 30rem" alt="Sorry Image Unavailable">
+        <div class="card-body">
+              <span class="card-title" style="font-size: 150%; color: crimson;">{{ restaurant.name }}</span>
+              <br>
+            <a [routerLink]="['./profile-page/', restaurant.place_id]" class="btn btn-info">
+                Click to See More!
+            </a>
+        </div>
+    </div>
+    </div>
+</div>
+    
